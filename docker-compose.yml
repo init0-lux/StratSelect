@@ -1,0 +1,5 @@
+services:
+  benchmark:
+    build: .
+    working_dir: /app
+    command: ["pytest", "-q"]
