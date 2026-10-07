@@ -2,4 +2,15 @@ services:
   benchmark:
     build: .
     working_dir: /app
+    volumes:
+      - .:/app
     command: ["pytest", "-q"]
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: stratselect
+      POSTGRES_USER: stratselect
+      POSTGRES_PASSWORD: stratselect
+    ports:
+      - "5432:5432"
